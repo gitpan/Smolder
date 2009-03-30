@@ -1,9 +1,9 @@
 ---
 name: Smolder
-version: 1.32
+version: 1.33
 author:
   - 'Michael Peters <mpeters@plusthree.com>'
-abstract: Web-based smoke test aggregator
+abstract: Web-based Continuous Integration Smoke Server
 license: perl
 resources:
   license: ~
@@ -15,7 +15,7 @@ requires:
   CGI::Application::Dispatch: 2.15
   CGI::Application::Plugin::JSON: 1.01
   CGI::Application::Plugin::LogDispatch: 1.02
-  CGI::Application::Plugin::Stream: 2.06
+  CGI::Application::Plugin::Stream: 2.1
   CGI::Application::Plugin::TT: 1.04
   CGI::Application::Plugin::ValidateRM: 2.3
   CGI::Application::Server: 0.06
@@ -68,7 +68,7 @@ build_requires:
 provides:
   Smolder:
     file: lib/Smolder.pm
-    version: 1.32
+    version: 1.33
   Smolder::AuthHandler:
     file: lib/Smolder/AuthHandler.pm
   Smolder::AuthInfo:
@@ -153,3 +153,26 @@ generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
+no_index:
+  directory:
+    - Smolder/Control
+    - Smolder/DB
+    - Smolder/Upgrade
+  file:
+    - Smolder/AuthHandler.pm
+    - Smolder/AuthInfo.pm
+    - Smolder/Build.pm
+    - Smolder/Conf.pm
+    - Smolder/Constraints.pm
+    - Smolder/Control.pm
+    - Smolder/DB.pm
+    - Smolder/Dispatch.pm
+    - Smolder/Email.pm
+    - Smolder/Mech.pm
+    - Smolder/Redirect.pm
+    - Smolder/Server.pm
+    - Smolder/TAPHTMLMatrix.pm
+    - Smolder/TestData.pm
+    - Smolder/TestScript.pm
+    - Smolder/Upgrade.pm
+    - Smolder/Util.pm

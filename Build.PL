@@ -18,7 +18,7 @@ my $builder = Smolder::Build->new(
         'CGI::Application::Server'                   => 0.060,
         'CGI::Application::Plugin::JSON'             => 1.01,
         'CGI::Application::Plugin::LogDispatch'      => 1.02,
-        'CGI::Application::Plugin::Stream'           => 2.06,
+        'CGI::Application::Plugin::Stream'           => 2.10,
         'CGI::Application::Plugin::TT'               => 1.04,
         'CGI::Application::Plugin::ValidateRM'       => 2.3,
         'Class::DBI'                                 => 3.0,
@@ -79,6 +79,34 @@ my $builder = Smolder::Build->new(
         htdocs    => catdir($SHARE_DIR, 'htdocs'),
     },
     add_to_cleanup     => ['data/*', 'logs/*', 'Smolder-*'],
+    meta_add => {
+        no_index => {
+            directory => [qw(
+                Smolder/Control
+                Smolder/DB
+                Smolder/Upgrade
+            )],
+            file => [qw(
+                Smolder/AuthHandler.pm
+                Smolder/AuthInfo.pm
+                Smolder/Build.pm
+                Smolder/Conf.pm
+                Smolder/Constraints.pm
+                Smolder/Control.pm
+                Smolder/DB.pm
+                Smolder/Dispatch.pm
+                Smolder/Email.pm
+                Smolder/Mech.pm
+                Smolder/Redirect.pm
+                Smolder/Server.pm
+                Smolder/TAPHTMLMatrix.pm
+                Smolder/TestData.pm
+                Smolder/TestScript.pm
+                Smolder/Upgrade.pm
+                Smolder/Util.pm
+            )],
+        },
+    },
 );
 
 $builder->add_build_element('templates');
