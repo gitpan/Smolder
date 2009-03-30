@@ -1,9 +1,9 @@
 use strict;
 use warnings;
-use Smolder::Build;
+use lib 'lib';
 use File::Spec::Functions qw(catdir);
 use Config;
-use lib './t/lib';
+use Smolder::Build;
 
 my $SHARE_DIR = catdir($Config{installsitelib}, 'auto', 'share', 'Smolder');
 
@@ -55,6 +55,10 @@ my $builder = Smolder::Build->new(
         'URI::file'                                  => 0,
         'XML::Atom::SimpleFeed'                      => 0,
     },
+    configure_requires => {
+        'Module::Build'             => 0,
+        'Module::Build::TAPArchive' => 0,
+    },
     build_requires => {
         'Test::WWW::Mechanize'      => 1.22,
         'Test::Builder'             => 0.86,
@@ -62,9 +66,10 @@ my $builder = Smolder::Build->new(
         'LWP::UserAgent'            => 0,
         'WWW::Mechanize'            => 0,
         'IPC::Run'                  => 0.82,
-        'Module::Build::TAPArchive' => 0,
         'File::Find'                => 0,
         'File::Copy'                => 0,
+        'Module::Build'             => 0,
+        'Module::Build::TAPArchive' => 0,
     },
     install_path => {
         templates => catdir($SHARE_DIR, 'templates'),

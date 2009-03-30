@@ -1,12 +1,15 @@
 ---
 name: Smolder
-version: 1.30
+version: 1.31
 author:
   - 'Michael Peters <mpeters@plusthree.com>'
 abstract: Web-based smoke test aggregator
 license: perl
 resources:
   license: ~
+configure_requires:
+  Module::Build: 0
+  Module::Build::TAPArchive: 0
 requires:
   CGI::Application: 4.21
   CGI::Application::Dispatch: 2.15
@@ -54,6 +57,7 @@ build_requires:
   File::Find: 0
   IPC::Run: 0.82
   LWP::UserAgent: 0
+  Module::Build: 0
   Module::Build::TAPArchive: 0
   Test::Builder: 0.86
   Test::More: 0.86
@@ -62,7 +66,7 @@ build_requires:
 provides:
   Smolder:
     file: lib/Smolder.pm
-    version: 1.30
+    version: 1.31
   Smolder::AuthHandler:
     file: lib/Smolder/AuthHandler.pm
   Smolder::AuthInfo:
