@@ -1,8 +1,8 @@
 use strict;
 use warnings;
-use lib 'lib';
 use File::Spec::Functions qw(catdir);
 use Config;
+use lib 'lib';
 use Smolder::Build;
 
 my $SHARE_DIR = catdir($Config{installsitelib}, 'auto', 'share', 'Smolder');
@@ -22,6 +22,7 @@ my $builder = Smolder::Build->new(
         'CGI::Application::Plugin::TT'               => 1.04,
         'CGI::Application::Plugin::ValidateRM'       => 2.3,
         'Class::DBI'                                 => 3.0,
+        'Class::DBI::SQLite'                         => 0,
         'Class::DBI::Plugin::RetrieveAll'            => 1.04,
         'Config::ApacheFormat'                       => 0,
         'Data::FormValidator'                        => 4.61,
@@ -51,6 +52,7 @@ my $builder = Smolder::Build->new(
         'Pod::Usage'                                 => 0,
         'TAP::Harness::Archive'                      => 0.12,
         'Template::Plugin::Cycle'                    => 0,
+        'Template::Plugin::Number::Format'           => 0,
         'URI::Escape'                                => 0,
         'URI::file'                                  => 0,
         'XML::Atom::SimpleFeed'                      => 0,
@@ -76,7 +78,6 @@ my $builder = Smolder::Build->new(
         sql       => catdir($SHARE_DIR, 'sql'),
         htdocs    => catdir($SHARE_DIR, 'htdocs'),
     },
-    create_makefile_pl => 'passthrough',
     add_to_cleanup     => ['data/*', 'logs/*', 'Smolder-*'],
 );
 

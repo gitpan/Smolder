@@ -1,6 +1,6 @@
 ---
 name: Smolder
-version: 1.31
+version: 1.32
 author:
   - 'Michael Peters <mpeters@plusthree.com>'
 abstract: Web-based smoke test aggregator
@@ -21,6 +21,7 @@ requires:
   CGI::Application::Server: 0.06
   Class::DBI: 3
   Class::DBI::Plugin::RetrieveAll: 1.04
+  Class::DBI::SQLite: 0
   Config::ApacheFormat: 0
   DBD::SQLite: 1.12
   Data::FormValidator: 4.61
@@ -49,6 +50,7 @@ requires:
   Pod::Usage: 0
   TAP::Harness::Archive: 0.12
   Template::Plugin::Cycle: 0
+  Template::Plugin::Number::Format: 0
   URI::Escape: 0
   URI::file: 0
   XML::Atom::SimpleFeed: 0
@@ -66,7 +68,7 @@ build_requires:
 provides:
   Smolder:
     file: lib/Smolder.pm
-    version: 1.31
+    version: 1.32
   Smolder::AuthHandler:
     file: lib/Smolder/AuthHandler.pm
   Smolder::AuthInfo:
