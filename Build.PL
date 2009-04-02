@@ -5,8 +5,6 @@ use Config;
 use lib 'lib';
 use Smolder::Build;
 
-my $SHARE_DIR = catdir($Config{installsitelib}, 'auto', 'share', 'Smolder');
-
 my $builder = Smolder::Build->new(
     module_name       => 'Smolder',
     license           => 'perl',
@@ -24,7 +22,6 @@ my $builder = Smolder::Build->new(
         'Class::DBI'                                 => 3.0,
         'Class::DBI::SQLite'                         => 0,
         'Class::DBI::Plugin::RetrieveAll'            => 1.04,
-        'Config::ApacheFormat'                       => 0,
         'Data::FormValidator'                        => 4.61,
         'Data::FormValidator::Constraints::DateTime' => 1.09,
         'Data::Random'                               => 0.05,
@@ -66,17 +63,12 @@ my $builder = Smolder::Build->new(
         'Test::Builder'             => 0.86,
         'Test::More'                => 0.86,
         'LWP::UserAgent'            => 0,
-        'WWW::Mechanize'            => 0,
         'IPC::Run'                  => 0.82,
+        'WWW::Mechanize'            => 0,
         'File::Find'                => 0,
         'File::Copy'                => 0,
         'Module::Build'             => 0,
         'Module::Build::TAPArchive' => 0,
-    },
-    install_path => {
-        templates => catdir($SHARE_DIR, 'templates'),
-        sql       => catdir($SHARE_DIR, 'sql'),
-        htdocs    => catdir($SHARE_DIR, 'htdocs'),
     },
     add_to_cleanup     => ['data/*', 'logs/*', 'Smolder-*'],
     meta_add => {
