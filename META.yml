@@ -1,12 +1,7 @@
 ---
-name: Smolder
-version: 1.51
+abstract: 'continuous integration smoke server'
 author:
   - 'Michael Peters <mpeters@plusthree.com>'
-abstract: continuous integration smoke server
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
 build_requires:
   File::Copy: 0
   File::Find: 0
@@ -17,60 +12,63 @@ build_requires:
   Test::More: 0.86
   Test::WWW::Mechanize: 1.22
   WWW::Mechanize: 0
-requires:
-  CGI::Application: 4.21
-  CGI::Application::Dispatch: 2.15
-  CGI::Application::Plugin::JSON: 1.01
-  CGI::Application::Plugin::LogDispatch: 1.02
-  CGI::Application::Plugin::Stream: 2.1
-  CGI::Application::Plugin::TT: 1.04
-  CGI::Application::Plugin::ValidateRM: 2.3
-  CGI::Application::Server: 0.06
-  Class::DBI: 3
-  Class::DBI::AbstractSearch: 0.07
-  Class::DBI::Plugin::RetrieveAll: 1.04
-  Class::DBI::SQLite: 0
-  DBD::SQLite: 1.2
-  Data::FormValidator: 4.61
-  Data::FormValidator::Constraints::DateTime: 1.09
-  Data::Random: 0.05
-  DateTime: 0.4501
-  DateTime::Format::Strptime: 0
-  Digest::MD5: 0
-  Email::Valid: 0
-  Exception::Class: 1.23
-  File::HomeDir: 0.8
-  File::MMagic: 0
-  File::Path: 2.04
-  File::ShareDir: 1
-  File::Slurp: 0
-  File::Temp: 0.21
-  GD::Graph: 0
-  GD::Graph3d: 0
-  GD::Text: 0
-  Getopt::Long: 0
-  HTML::FillInForm: 2
-  HTML::FormatText::WithLinks: 0
-  HTML::TagCloud: 0.34
-  IO::Scalar: 0
-  IO::Zlib: 0
-  JSON: 0
-  MIME::Lite: 0
-  Net::Server::PreFork: 0
-  Pod::Usage: 0
-  TAP::Harness::Archive: 0.12
-  Template::Plugin::Cycle: 0
-  Template::Plugin::Number::Format: 0
-  Test::Harness: 3.17
-  URI::Escape: 0
-  URI::file: 0
-  XML::Atom::SimpleFeed: 0
 configure_requires:
   Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4005, CPAN::Meta::Converter version 2.130880'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Smolder
+no_index:
+  file:
+    - lib/Smolder/AuthHandler.pm
+    - lib/Smolder/AuthInfo.pm
+    - lib/Smolder/Build.pm
+    - lib/Smolder/Conf.pm
+    - lib/Smolder/Constraints.pm
+    - lib/Smolder/Control.pm
+    - lib/Smolder/Control/Admin.pm
+    - lib/Smolder/Control/Developer.pm
+    - lib/Smolder/Control/Graphs.pm
+    - lib/Smolder/Control/Projects.pm
+    - lib/Smolder/Control/Public.pm
+    - lib/Smolder/Control/Admin/Developers.pm
+    - lib/Smolder/Control/Admin/Projects.pm
+    - lib/Smolder/Control/Developer/Prefs.pm
+    - lib/Smolder/Control/Public/Auth.pm
+    - lib/Smolder/DB/Developer.pm
+    - lib/Smolder/DB/Preference.pm
+    - lib/Smolder/DB/ProjectDeveloper.pm
+    - lib/Smolder/DB/Project.pm
+    - lib/Smolder/DB/SmokeReport.pm
+    - lib/Smolder/DB/TestFileComment.pm
+    - lib/Smolder/DB/TestFile.pm
+    - lib/Smolder/DB/TestFileResult.pm
+    - lib/Smolder/DB.pm
+    - lib/Smolder/Dispatch.pm
+    - lib/Smolder/Email.pm
+    - lib/Smolder/Mech.pm
+    - lib/Smolder/Redirect.pm
+    - lib/Smolder/Server.pm
+    - lib/Smolder/TAPHTMLMatrix.pm
+    - lib/Smolder/TestData.pm
+    - lib/Smolder/TestScript.pm
+    - lib/Smolder/Upgrade.pm
+    - lib/Smolder/Util.pm
+    - lib/Smolder/Upgrade/V0_1.pm
+    - lib/Smolder/Upgrade/V0_3.pm
+    - lib/Smolder/Upgrade/V1_1.pm
+    - lib/Smolder/Upgrade/V1_21.pm
+    - lib/Smolder/Upgrade/V1_24.pm
+    - lib/Smolder/Upgrade/V1_30.pm
+    - lib/Smolder/Upgrade/V1_37.pm
+    - lib/Smolder/Upgrade/V1_50.pm
 provides:
   Smolder:
     file: lib/Smolder.pm
-    version: 1.51
+    version: 1.52
   Smolder::AuthHandler:
     file: lib/Smolder/AuthHandler.pm
   Smolder::AuthInfo:
@@ -163,51 +161,54 @@ provides:
     file: lib/Smolder/Upgrade/V1_50.pm
   Smolder::Util:
     file: lib/Smolder/Util.pm
-generated_by: Module::Build version 0.35
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-no_index:
-  file:
-    - lib/Smolder/AuthHandler.pm
-    - lib/Smolder/AuthInfo.pm
-    - lib/Smolder/Build.pm
-    - lib/Smolder/Conf.pm
-    - lib/Smolder/Constraints.pm
-    - lib/Smolder/Control.pm
-    - lib/Smolder/Control/Admin.pm
-    - lib/Smolder/Control/Developer.pm
-    - lib/Smolder/Control/Graphs.pm
-    - lib/Smolder/Control/Projects.pm
-    - lib/Smolder/Control/Public.pm
-    - lib/Smolder/Control/Admin/Developers.pm
-    - lib/Smolder/Control/Admin/Projects.pm
-    - lib/Smolder/Control/Developer/Prefs.pm
-    - lib/Smolder/Control/Public/Auth.pm
-    - lib/Smolder/DB/Developer.pm
-    - lib/Smolder/DB/Preference.pm
-    - lib/Smolder/DB/ProjectDeveloper.pm
-    - lib/Smolder/DB/Project.pm
-    - lib/Smolder/DB/SmokeReport.pm
-    - lib/Smolder/DB/TestFileComment.pm
-    - lib/Smolder/DB/TestFile.pm
-    - lib/Smolder/DB/TestFileResult.pm
-    - lib/Smolder/DB.pm
-    - lib/Smolder/Dispatch.pm
-    - lib/Smolder/Email.pm
-    - lib/Smolder/Mech.pm
-    - lib/Smolder/Redirect.pm
-    - lib/Smolder/Server.pm
-    - lib/Smolder/TAPHTMLMatrix.pm
-    - lib/Smolder/TestData.pm
-    - lib/Smolder/TestScript.pm
-    - lib/Smolder/Upgrade.pm
-    - lib/Smolder/Util.pm
-    - lib/Smolder/Upgrade/V0_1.pm
-    - lib/Smolder/Upgrade/V0_3.pm
-    - lib/Smolder/Upgrade/V1_1.pm
-    - lib/Smolder/Upgrade/V1_21.pm
-    - lib/Smolder/Upgrade/V1_24.pm
-    - lib/Smolder/Upgrade/V1_30.pm
-    - lib/Smolder/Upgrade/V1_37.pm
-    - lib/Smolder/Upgrade/V1_50.pm
+requires:
+  CGI::Application: 4.21
+  CGI::Application::Dispatch: 2.15
+  CGI::Application::Plugin::JSON: 1.01
+  CGI::Application::Plugin::LogDispatch: 1.02
+  CGI::Application::Plugin::Stream: 2.1
+  CGI::Application::Plugin::TT: 1.04
+  CGI::Application::Plugin::ValidateRM: 2.3
+  CGI::Application::Server: 0.06
+  Class::DBI: 3
+  Class::DBI::AbstractSearch: 0.07
+  Class::DBI::Plugin::RetrieveAll: 1.04
+  Class::DBI::SQLite: 0
+  DBD::SQLite: 1.2
+  Data::FormValidator: 4.61
+  Data::FormValidator::Constraints::DateTime: 1.09
+  Data::Random: 0.05
+  DateTime: 0.4501
+  DateTime::Format::Strptime: 0
+  Digest::MD5: 0
+  Email::Valid: 0
+  Exception::Class: 1.23
+  File::HomeDir: 0.8
+  File::MMagic: 0
+  File::Path: 2.04
+  File::ShareDir: 1
+  File::Slurp: 0
+  File::Temp: 0.21
+  GD::Graph: 0
+  GD::Graph3d: 0
+  GD::Text: 0
+  Getopt::Long: 0
+  HTML::FillInForm: 2
+  HTML::FormatText::WithLinks: 0
+  HTML::TagCloud: 0.34
+  IO::Scalar: 0
+  IO::Zlib: 0
+  JSON: 0
+  MIME::Lite: 0
+  Net::Server::PreFork: 0
+  Pod::Usage: 0
+  TAP::Harness::Archive: 0.12
+  Template::Plugin::Cycle: 0
+  Template::Plugin::Number::Format: 0
+  Test::Harness: 3.17
+  URI::Escape: 0
+  URI::file: 0
+  XML::Atom::SimpleFeed: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 1.52

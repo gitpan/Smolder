@@ -579,7 +579,7 @@ sub process_admin_settings {
     my $valid = $results->valid();
 
     # set and save
-    foreach my $field qw(allow_anon default_arch default_platform graph_start) {
+    foreach my $field (qw(allow_anon default_arch default_platform graph_start)) {
         $project->$field($valid->{$field});
     }
     $project->update();
@@ -813,8 +813,7 @@ sub feed {
     foreach my $report (@reports) {
         my $link =
             Smolder::Util::url_base() . '/app/'
-          . ($project->public ? 'public' : 'developer')
-          . '_projects/smoke_report/'
+          . 'projects/smoke_report/'
           . $report->id;
         $feed->add_entry(
             title => '#'

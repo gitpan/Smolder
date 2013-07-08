@@ -19,11 +19,13 @@ sub _random_secret {
 my %VALUES;
 
 BEGIN {
-    my $share_dir;
+    my $share_dir = ".";
     my $blib_share_dir = rel2abs(catdir(curdir, 'blib', 'lib', 'auto', 'share', 'dist', 'Smolder'));
-    if( -d $blib_share_dir ) {
+
+    if (-d $blib_share_dir) {
         $share_dir = $blib_share_dir;
-    } else {
+    }
+    elsif (-d dist_dir('Smolder')) {
         $share_dir = dist_dir('Smolder');
     }
 
@@ -31,8 +33,10 @@ BEGIN {
     %VALUES = (
         Port                  => 8080,
         HostName              => $default_hostname,
+        UrlBase               => '',
+        UrlPathPrefix         => '',
         FromAddress           => "smolder\@$default_hostname",
-        SMTPHost              => $default_hostname,
+        SMTPHost              => 'localhost',
         LogFile               => '',
         LogLevel              => 'warning',
         PidFile               => undef,
@@ -47,6 +51,9 @@ BEGIN {
         ReportsPerPage        => 5,
         AutoRedirectToProject => 0,
     );
+}
+sub my_datadir {
+	return $VALUES{DataDir};
 }
 
 =head1 NAME
@@ -209,6 +216,7 @@ sub init {
     foreach my $key (keys %args) {
         if( exists $VALUES{$key} ) {
             $VALUES{$key} = $args{$key};
+#print STDERR "$key == $VALUES{$key} \n";
         } else {
             croak "$key is not a valid Smolder config parameter!";
         }
